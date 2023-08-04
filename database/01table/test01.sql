@@ -1,0 +1,28 @@
+CREATE TABLE `score` (
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(8) NOT NULL,
+    `year` INT NOT NULL,
+    `term` CHAR(4) NOT NULL,
+    `title` VARCHAR(4) NOT NULL,
+    `score` INT NOT NULL,
+    `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DESC `score`;
+SELECT * FROM `score`;
+
+-- 컬럼추가
+ALTER TABLE `score` ADD COLUMN `semester` INT NOT NULL AFTER `year`;
+
+-- 컬럼 이름 수정
+ALTER TABLE `score` CHANGE COLUMN `title` `subject` INT NOT NULL; 
+
+-- 컬럼 스펙 수정
+ALTER TABLE `score` MODIFY COLUMN `name` VARCHAR(32) NOT NULL;
+ALTER TABLE `score` MODIFY COLUMN `subject` VARCHAR(16) NOT NULL;
+
+ALTER TABLE `score` MODIFY COLUMN `term` CHAR(4) NOT NULL;
